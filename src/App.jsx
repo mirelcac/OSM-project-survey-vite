@@ -1,3 +1,7 @@
+import Dropdown from "./components/dropdown.jsx"
+
 export const App = () => {
-  return <div>Find me in src/app.jsx!</div>;
+  return <div>
+    <Dropdown value="" />
+  </div>;
 };
