@@ -4,7 +4,8 @@ export const Artist = ({ updateFormData, value }) => {
   const favoriteArtist = (e) =>
     updateFormData("favoriteArtist", e.target.value);
   return (
-    <div>
+    <div className="form-container">
+      <div className="input-wrapper">
       <label>Artist of the year:</label>
       <select value={value} onChange={favoriteArtist}>
         <option>Select an Artist</option>
@@ -13,6 +14,7 @@ export const Artist = ({ updateFormData, value }) => {
         <option value="shakira">Shakira</option>
         <option value="karol-g">Karol G</option>
       </select>
+      </div>
     </div>
   );
 };

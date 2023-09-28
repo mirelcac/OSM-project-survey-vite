@@ -1,21 +1,38 @@
-import { useState } from "react"
+//Mirelas code
+import React, { useState } from "react"; // Added React import
+import PropTypes from 'prop-types';
 
-const Dropdown = () => {
-    const [creature, SetCreatre] = useState("");
-    < h1 > What is your biggest fear?</h1>
+export const Dropdown = ({ updateFormData, value }) => {
+    const [creature, setCreature] = useState(value || ''); // Initialize creature state
+
+    // Function to update creature state and call updateFormData
+    const dropdownInput = (e) => {
+        const selectedValue = e.target.value;
+        setCreature(selectedValue);
+        updateFormData("creature", selectedValue);
+    };
+
     return (
-        <form>
-            <select
-                onChange={event => setCreature(event.target.value)}
-                value={creature}
-            >
-                <option value="">Select Creature</option>
-                <option value="Ghost">Ghost</option>
-                <option value="Whitch">Whitch</option>
-                <option value="Zombie">Zombie</option>
-            </select>
-        </form>
-    )
-}
+        <div className="form-container">
+            <h1>What is your biggest fear?</h1> {/* Moved this line above the form */}
+            <form>
+                <div className="input-wrapper">
+                    <select
+                        onChange={dropdownInput} // Use the dropdownInput function
+                        value={creature}
+                    >
+                        <option value="">Select Creature</option>
+                        <option value="Ghost">Ghost</option>
+                        <option value="Witch">Witch</option> {/* Corrected the spelling of Witch */}
+                        <option value="Zombie">Zombie</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+    );
+};
 
-export default Dropdown
+Dropdown.propTypes = {
+    updateFormData: PropTypes.func.isRequired,
+    value: PropTypes.string, // Assuming value is a string
+};

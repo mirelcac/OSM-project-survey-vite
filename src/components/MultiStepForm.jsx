@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Age } from "./Age";
-import { Album } from "./Album";
+import { Dropdown } from "./dropdown";
+import { RadioButtons } from "./radioButtons";
 import { Artist } from "./Artist";
 import { Band } from "./Band";
-import { Email } from "./Email";
 import { Name } from "./Name";
 
 export const MultiStepForm = () => {
@@ -11,10 +11,11 @@ export const MultiStepForm = () => {
   const [formData, setFormData] = useState({
     name: "",
     age: "",
-    email: "",
     favoriteBand: "",
-    favoriteAlbum: "",
+    // favoriteAlbum: "",
+    Dropdown: "",
     favoriteArtist: "",
+    radioButtons: "",
   });
 
   // Function to update form data based on field and value
@@ -59,10 +60,10 @@ export const MultiStepForm = () => {
     const formattedData = `
     Name: ${formData.name}
     Age: ${formData.age}
-    Email: ${formData.email}
     Favorite Band: ${formData.favoriteBand}
-    Favorite Album: ${formData.favoriteAlbum}
-    Favorite Artist: ${formData.favoriteArtist}
+    Dropdown: ${formData.Dropdown},
+    Favorite Artist: ${formData.favoriteArtist},
+    Location: ${formData.radioButtons}
   `;
     alert(formattedData);
   };
@@ -78,7 +79,7 @@ export const MultiStepForm = () => {
       )}
       {/* Render the Email component if on step 3 */}
       {currentStep === 3 && (
-        <Email value={formData.email} updateFormData={updateFormData} />
+        <RadioButtons value={formData.radioButtons} updateFormData={updateFormData} />
       )}
       {/* Render the Band component if on step 4 */}
       {currentStep === 4 && (
@@ -86,7 +87,7 @@ export const MultiStepForm = () => {
       )}
       {/* Render the Album component if on step 5 */}
       {currentStep === 5 && (
-        <Album value={formData.favoriteAlbum} updateFormData={updateFormData} />
+        <Dropdown value={formData.Dropdown} updateFormData={updateFormData} />
       )}
       {/* Render the Artist component if on step 6 */}
       {currentStep === 6 && (
