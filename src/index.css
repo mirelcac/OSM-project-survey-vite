@@ -28,4 +28,34 @@ form {
 .input-wrapper {
   padding: 10px;
   margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#name-input, #age-input, #weather-input, #fear-input, #sound-input {
+  background-color: rgb(165, 174, 189);
+  color: rgb(65, 65, 80);
+  font-family: 'Mooli';
+  padding: 5px;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+button {
+  background-color: rgb(63, 68, 97);
+  padding: 10px;
+  color: rgb(165, 174, 189);
+  border-radius: 5px;
+  font-family: 'Mooli';
+  font-size: 15px;
+  border: 2px solid rgb(165, 174, 189);
+  margin: 2px;
+}
+
+.buttons {
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

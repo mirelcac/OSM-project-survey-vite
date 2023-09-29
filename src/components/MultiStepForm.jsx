@@ -2,8 +2,8 @@ import { useState } from "react";
 import { Age } from "./Age";
 import { Dropdown } from "./dropdown";
 import { RadioButtons } from "./radioButtons";
-import { Artist } from "./Artist";
-import { Band } from "./Band";
+import { Sound } from "./Sound";
+import { Weather } from "./Weather";
 import { Name } from "./Name";
 
 export const MultiStepForm = () => {
@@ -11,10 +11,9 @@ export const MultiStepForm = () => {
   const [formData, setFormData] = useState({
     name: "",
     age: "",
-    favoriteBand: "",
-    // favoriteAlbum: "",
+    chooseWeather: "",
     Dropdown: "",
-    favoriteArtist: "",
+    chooseSound: "",
     radioButtons: "",
   });
 
@@ -60,9 +59,9 @@ export const MultiStepForm = () => {
     const formattedData = `
     Name: ${formData.name}
     Age: ${formData.age}
-    Favorite Band: ${formData.favoriteBand}
+    Weather: ${formData.chooseWeather}
     Dropdown: ${formData.Dropdown},
-    Favorite Artist: ${formData.favoriteArtist},
+    Sound: ${formData.chooseSound},
     Location: ${formData.radioButtons}
   `;
     alert(formattedData);
@@ -83,7 +82,7 @@ export const MultiStepForm = () => {
       )}
       {/* Render the Band component if on step 4 */}
       {currentStep === 4 && (
-        <Band value={formData.favoriteBand} updateFormData={updateFormData} />
+        <Weather value={formData.chooseWeather} updateFormData={updateFormData} />
       )}
       {/* Render the Album component if on step 5 */}
       {currentStep === 5 && (
@@ -91,12 +90,12 @@ export const MultiStepForm = () => {
       )}
       {/* Render the Artist component if on step 6 */}
       {currentStep === 6 && (
-        <Artist
-          value={formData.favoriteArtist}
+        <Sound
+          value={formData.chooseSound}
           updateFormData={updateFormData}
         />
       )}
-      <div>
+      <div class="buttons">
         {/* Show the "Back" button if not on the first step */}
         {currentStep > 1 && <button onClick={prevStep}>Back</button>}
         {currentStep < 6 ? (

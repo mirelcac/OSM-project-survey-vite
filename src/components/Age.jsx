@@ -5,8 +5,8 @@ export const Age = ({ updateFormData, value }) => {
   return (
     <div className="form-container">
       <div className="input-wrapper">
-      <label>Age:</label>
-      <input type="number" value={value} onChange={ageInput} />
+      <label><h2>How old are you?</h2></label>
+      <input type="number" id="age-input" value={value} onChange={ageInput} />
       </div>
     </div>
   );

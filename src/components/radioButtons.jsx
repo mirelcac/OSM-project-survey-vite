@@ -6,7 +6,7 @@ export const RadioButtons = ({ updateFormData, value }) => {
 
   return (
     <div className="form-container">
-      <h2>Choose a location...</h2>
+      <h2>Choose a location:</h2>
       <form>
         <div className="input-wrapper">
           <label>

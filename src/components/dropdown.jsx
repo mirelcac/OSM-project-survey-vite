@@ -14,12 +14,13 @@ export const Dropdown = ({ updateFormData, value }) => {
 
     return (
         <div className="form-container">
-            <h1>What is your biggest fear?</h1> {/* Moved this line above the form */}
+            <h2>What is your biggest fear?</h2> {/* Moved this line above the form */}
             <form>
                 <div className="input-wrapper">
                     <select
                         onChange={dropdownInput} // Use the dropdownInput function
                         value={creature}
+                        id="fear-input"
                     >
                         <option value="">Select Creature</option>
                         <option value="Ghost">Ghost</option>
