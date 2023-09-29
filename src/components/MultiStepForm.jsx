@@ -1,114 +1,110 @@
-import { useState } from "react";
-import { Age } from "./Age";
-import { Dropdown } from "./dropdown";
-import { RadioButtons } from "./radioButtons";
-import { Sound } from "./Sound";
-import { Weather } from "./Weather";
-import { Name } from "./Name";
+//IMPORT COMPONENTS//
+import { useState } from "react"
+import { Story } from "./Story"//not defined??
+import { Number } from "./Number"
+import { Antagonist } from "./Antagonist"
+import { Setting } from "./Setting"
+import { Sound } from "./Sound"
+import { Weather } from "./Weather"
+import { Name } from "./Name"
 
+//EXPORT THIS COMPONENT//
 export const MultiStepForm = () => {
   // State to store form data
   const [formData, setFormData] = useState({
     name: "",
-    age: "",
+    number: "",
     chooseWeather: "",
-    Dropdown: "",
+    chooseAntagonist: "",
     chooseSound: "",
-    radioButtons: "",
-  });
+    setting: "",
+  })
 
-  // Function to update form data based on field and value
+  //FUNCTION TO UPDATE FORM DATA BASED ON FIELD AND VALUE//
+  //The updateFormData function takes a field and a value, and updates the formData state by creating a new object that contains all the previous properties and values, but with the specified field updated to the new value.
+
+  //Please see my questions related to this in the bottom of some of the components - MC
   const updateFormData = (field, value) => {
-    setFormData((previous) => ({ ...previous, [field]: value }));
-  };
+    setFormData((previous) => ({ ...previous, [field]: value }))
+  }
 
-  // The updateFormData function is designed to update the state of formData based on the provided field and value arguments. Let's break it down step by step:
 
-  // Function Arguments:
-
-  // field: This argument represents the key (or property name) in the formData object that you want to update. For example, it could be "name", "age", "email", etc.
-  // value: This argument represents the new value that you want to assign to the specified field.
-  // setFormData:
-
-  // This is the state update function provided by the useState hook for the formData state. It's used to update the state of formData.
-  // Function Body:
-
-  // prev: This represents the current state of formData before any updates. It's a common pattern to use a function inside setState (or setFormData in this case) when the next state depends on the previous state.
-
-  // { ...prev }: This syntax is called the spread operator. It's used to create a new object that contains all of the properties of the prev object. This ensures that we're not directly mutating the state, but instead creating a new copy of it.
-
-  // [field]: value: This is a computed property name. It allows you to set the property of an object based on the value of a variable (field in this case). The value of this property will be set to the value argument passed to the function. For example, if field is "name" and value is "John", this would add or update the property "name" with the value "John" in the new object.
-
-  // In summary, the updateFormData function takes a field and a value, and updates the formData state by creating a new object that contains all the previous properties and values, but with the specified field updated to the new value.
-
-  /// GOING BACK AND FORTH BETWEENQUESTIONS
-
-  // State to track the current step in the form
+  //GOING BACK AND FORTH BETWEEN QUESTIONS//
+  //State to track the current step in the form
   const [currentStep, setCurrentStep] = useState(1);
-  // Function to move to the next step in the form
+  //Function to move to the next step in the form
   const nextStep = () => {
-    if (currentStep < 6) setCurrentStep(currentStep + 1);
+    if (currentStep < 7) setCurrentStep(currentStep + 1);
   };
   const prevStep = () => {
     if (currentStep > 1) setCurrentStep(currentStep - 1);
   };
 
-  // function to submit the form itself
-  const submitForm = () => {
+
+  //FUNCTION TO RELOAD PAGE//
+  //In here we also create new buttons, and display the story//
+  const reloadPage = () => {
+    window.location.reload()
     console.log(formData);
-    const formattedData = `
+    `
     Name: ${formData.name}
-    Age: ${formData.age}
+    Number: ${formData.number}
     Weather: ${formData.chooseWeather}
-    Dropdown: ${formData.Dropdown},
-    Sound: ${formData.chooseSound},
-    Location: ${formData.radioButtons}
-  `;
-    alert(formattedData);
-  };
+    Antagonist: ${formData.chooseAntagonist}
+    Sound: ${formData.chooseSound}
+    Setting: ${formData.location}
+    `
+  }
+
   return (
     <div>
       {/* Render the Name component if on step 1 */}
       {currentStep === 1 && (
         <Name value={formData.name} updateFormData={updateFormData} />
       )}
-      {/* Render the Age component if on step 2 */}
+      {/* Render the number component if on step 2 */}
       {currentStep === 2 && (
-        <Age value={formData.age} updateFormData={updateFormData} />
+        <Number value={formData.number} updateFormData={updateFormData} />
       )}
-      {/* Render the Email component if on step 3 */}
+      {/* Render the setting if on step 3 */}
       {currentStep === 3 && (
-        <RadioButtons value={formData.radioButtons} updateFormData={updateFormData} />
+        <Setting value={formData.setting} updateFormData={updateFormData} />
       )}
-      {/* Render the Band component if on step 4 */}
+      {/* Render the weather component if on step 4 */}
       {currentStep === 4 && (
         <Weather value={formData.chooseWeather} updateFormData={updateFormData} />
       )}
-      {/* Render the Album component if on step 5 */}
+      {/* Render the antagonist component if on step 5 */}
       {currentStep === 5 && (
-        <Dropdown value={formData.Dropdown} updateFormData={updateFormData} />
+        <Antagonist value={formData.chooseAntagonist} updateFormData={updateFormData} />
       )}
-      {/* Render the Artist component if on step 6 */}
+      {/* Render the sound component if on step 6 */}
       {currentStep === 6 && (
-        <Sound
-          value={formData.chooseSound}
-          updateFormData={updateFormData}
-        />
+        <Sound value={formData.chooseSound} updateFormData={updateFormData} />
       )}
-      <div class="buttons">
-        {/* Show the "Back" button if not on the first step */}
-        {currentStep > 1 && <button onClick={prevStep}>Back</button>}
-        {currentStep < 6 ? (
-          <button onClick={nextStep}>Next</button>
-        ) : (
-          <button onClick={submitForm}>Submit Form</button>
-        )}
+      {/* Render the story board with all user's input */}
+      {currentStep === 7 && (
+        <Story formData={formData} />
+      )}
+      <div className="buttons">{/*Changed class to className - MC*/}
+        {(currentStep > 1 && currentStep <= 6) && <button className="back-btn" onClick={prevStep}>Back</button>}
+        {/* Show Next button up to 5th step */}
+        {currentStep < 6 && <button className="next-btn" onClick={nextStep}>Next choice</button>}
+        {/* Change button msg on 6th and last form input */}
+        {currentStep === 6 && <button className="create-btn" onClick={nextStep}>Scare me!</button>}
+        {/* Reload whole story-telling app */}
+        {currentStep === 7 && <button className="reload-btn" type="submit" onClick={reloadPage}>New story!</button>}
       </div>
     </div>
   );
-
 };
 
 
-    
+
+
+
+
+
+
+
 

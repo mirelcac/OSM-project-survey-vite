@@ -6,11 +6,10 @@ import "./index.css"
 export default function App() {
   return (
     <>
-
       {/* Multi Step Form */}
       <MultiStepForm />
     </>
-  );
+  )
 }
 
 
