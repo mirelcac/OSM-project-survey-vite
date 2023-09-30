@@ -1,10 +1,10 @@
 //This is the only component that differs from the rest now. I did not have time to fix it. S has not added the extra const in this one as he did in my component, so I think this one will be easier to fix. When you fix it, we will not need the import react at all, and updateFormData should work. - MC
 
-import React, { useState } from 'react' //<<<<we don't need the first "React" here.. MC
+// import React, { useState } from 'react' //<<<<we don't need the first "React" here.. MC
 import PropTypes from 'prop-types'
 
 export const Setting = ({ updateFormData, value }) => {
-  const [location, setLocation] = useState(value || "")
+  const setLocation = (e) => updateFormData("setLocation", e.target.value)
 
   return (
     <div className="form-container">
@@ -14,9 +14,9 @@ export const Setting = ({ updateFormData, value }) => {
           <label>
             <input
               type="radio"
-              value="hauntedHouse"
+              value="haunted house"
               onChange={event => setLocation(event.target.value)}
-              checked={location === "hauntedHouse"}
+              checked={setLocation === "haunted house"}
             />
             Haunted house
           </label>
@@ -25,9 +25,9 @@ export const Setting = ({ updateFormData, value }) => {
           <label>
             <input
               type="radio"
-              value="darkForest"
+              value="dark forest"
               onChange={event => setLocation(event.target.value)}
-              checked={location === "darkForest"}
+              checked={setLocation === "dark forest"}
             />
             Dark forest
           </label>
@@ -36,9 +36,9 @@ export const Setting = ({ updateFormData, value }) => {
           <label>
             <input
               type="radio"
-              value="oldGraveyard"
+              value="old graveyard"
               onChange={event => setLocation(event.target.value)}
-              checked={location === "oldGraveyard"}
+              checked={setLocation === "old graveyard"}
             />
             Old graveyard
           </label>

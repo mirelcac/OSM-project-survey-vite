@@ -52,7 +52,7 @@ export const MultiStepForm = () => {
     Weather: ${formData.chooseWeather}
     Antagonist: ${formData.chooseAntagonist}
     Sound: ${formData.chooseSound}
-    Setting: ${formData.location}
+    Setting: ${formData.setLocation}
     `
   }
 
@@ -68,7 +68,7 @@ export const MultiStepForm = () => {
       )}
       {/* Render the setting if on step 3 */}
       {currentStep === 3 && (
-        <Setting value={formData.setting} updateFormData={updateFormData} />
+        <Setting value={formData.setLocation} updateFormData={updateFormData} />
       )}
       {/* Render the weather component if on step 4 */}
       {currentStep === 4 && (
