@@ -43,7 +43,7 @@
 import React, { useState } from "react"; // Import useState from React
 import PropTypes from "prop-types";
 
-const Dropdown = ({ updateFormData, value }) => {
+export const Dropdown = ({ updateFormData, value }) => {
   const [creature, setCreature] = useState(value || '');
 
   const dropdownInput = (e) => {
@@ -82,4 +82,4 @@ Dropdown.propTypes = {
   value: PropTypes.string,
 };
 
-export default Dropdown;
+// export default Dropdown;
