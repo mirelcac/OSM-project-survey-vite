@@ -33,7 +33,11 @@ form {
   align-items: center;
 }
 
-#name-input, #age-input, #weather-input, #fear-input, #sound-input {
+#name-input,
+#age-input,
+#weather-input,
+#creature-input,
+#sound-input {
   background-color: rgb(165, 174, 189);
   color: rgb(65, 65, 80);
   font-family: 'Mooli';
