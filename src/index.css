@@ -1,6 +1,8 @@
 body {
   background-image: url("halloween.png");
   background-size: 100%;
+  background-color: #242638;
+  background-repeat: no-repeat;
 }
 
 h2 {
@@ -59,7 +61,43 @@ button {
 
 .buttons {
   position: absolute;
-  top: 75%;
+  top: 85%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.story-container {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Mooli';
+  background-color: #242638;
+  border-radius: 10px;
+  padding: 20px;
+  color: rgb(221, 192, 117);
+}
+
+@media screen and (max-width: 667px) {
+  body {
+    background-image: url('halloween-mobile.png');
+    background-repeat: no-repeat;
+    background-color: #242638;
+  }
+
+  .story-container {
+    width: 85%;
+  }
+}
+
+@media screen and (min-width: 668px) and (max-width: 1024px) {
+  body {
+    background-image: url('halloween-tablet.png');
+    background-repeat: no-repeat;
+    background-color: #242638;
+  }
+
+  .story-container {
+    width: 85%;
+  }
 }
