@@ -20,5 +20,5 @@ export const Weather = ({ updateFormData, value }) => {
 
 Weather.propTypes = {
   updateFormData: PropTypes.func.isRequired,
-  value: PropTypes.any, //S: COULD YOU PLEASE ADD A COMMENT EXPLAINING THE USE OF PropTypes IN OUR CODE. I JHAVE NOT USED IT BEFORE MYSELF.  
+  value: PropTypes.any,
 }

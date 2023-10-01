@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
 
-//WHY IS THE PARAM SET TO (e)? - MC
 export const Name = ({ value, updateFormData }) => {
   const userName = (e) => updateFormData("name", e.target.value);
   return (
@@ -14,6 +13,6 @@ export const Name = ({ value, updateFormData }) => {
 }
 
 Name.propTypes = {
-  updateFormData: PropTypes.func.isRequired, // Assuming it's required and a function //WHAT EXACTLY DOES THIS MEAN? DO WE NEED IT IN OUR CODE? - MC
-  value: PropTypes.any, // Adjust the PropTypes type as needed for the 'value' prop
+  updateFormData: PropTypes.func.isRequired,
+  value: PropTypes.any,
 }

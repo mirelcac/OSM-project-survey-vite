@@ -1,6 +1,6 @@
 //IMPORT COMPONENTS//
 import { useState } from "react"
-import { Story } from "./Story"//not defined??
+import { Story } from "./Story"
 import { Number } from "./Number"
 import { Antagonist } from "./Antagonist"
 import { Setting } from "./Setting"
@@ -22,8 +22,6 @@ export const MultiStepForm = () => {
 
   //FUNCTION TO UPDATE FORM DATA BASED ON FIELD AND VALUE//
   //The updateFormData function takes a field and a value, and updates the formData state by creating a new object that contains all the previous properties and values, but with the specified field updated to the new value.
-
-  //Please see my questions related to this in the bottom of some of the components - MC
   const updateFormData = (field, value) => {
     setFormData((previous) => ({ ...previous, [field]: value }))
   }
@@ -34,11 +32,11 @@ export const MultiStepForm = () => {
   const [currentStep, setCurrentStep] = useState(1);
   //Function to move to the next step in the form
   const nextStep = () => {
-    if (currentStep < 7) setCurrentStep(currentStep + 1);
-  };
+    if (currentStep < 7) setCurrentStep(currentStep + 1)
+  }
   const prevStep = () => {
-    if (currentStep > 1) setCurrentStep(currentStep - 1);
-  };
+    if (currentStep > 1) setCurrentStep(currentStep - 1)
+  }
 
 
   //FUNCTION TO RELOAD PAGE//
@@ -86,7 +84,7 @@ export const MultiStepForm = () => {
       {currentStep === 7 && (
         <Story formData={formData} />
       )}
-      <div className="buttons">{/*Changed class to className - MC*/}
+      <div className="buttons">
         {(currentStep > 1 && currentStep <= 6) && <button className="back-btn" onClick={prevStep}>Back</button>}
         {/* Show Next button up to 5th step */}
         {currentStep < 6 && <button className="next-btn" onClick={nextStep}>Next choice</button>}
@@ -96,8 +94,8 @@ export const MultiStepForm = () => {
         {currentStep === 7 && <button className="reload-btn" type="submit" onClick={reloadPage}>New story!</button>}
       </div>
     </div>
-  );
-};
+  )
+}
 
 
 

@@ -23,6 +23,6 @@ export const Antagonist = ({ value, updateFormData }) => {
 }
 
 Antagonist.propTypes = {
-    updateFormData: PropTypes.func.isRequired, //IS THIS REQUIRED ??
-    value: PropTypes.string, // S: WHY HAVE YOU CHOSEN TO WRITE SOME .string AND SOME AS .any? COULD YOU PLEASE ADD A COMMENT EXPLAING WHY YOU CHOSE ONE IN ONE DROPDOWN AND ANOTHER IN ANOTHER DROPDOWN?
+    updateFormData: PropTypes.func.isRequired,
+    value: PropTypes.string,
 }

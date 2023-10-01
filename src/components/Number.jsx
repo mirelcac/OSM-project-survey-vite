@@ -12,7 +12,6 @@ export const Number = ({ updateFormData, value }) => {
   )
 }
 
-// Adjust the PropTypes type as needed
 Number.propTypes = {
   updateFormData: PropTypes.any,
   value: PropTypes.any,
