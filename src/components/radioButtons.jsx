@@ -4,7 +4,15 @@ import PropTypes from 'prop-types';
 export const RadioButtons = ({ updateFormData, value }) => {
   const [location, setLocation] = useState(value || "");
 
+  // Function to handle radio button change and update the location
+  const handleLocationChange = (event) => {
+    const selectedValue = event.target.value;
+    setLocation(selectedValue);
+    updateFormData("radioButtons", selectedValue);
+  };
+
   return (
+    <React.Fragment>
     <div className="form-container">
       <h2>Choose a location:</h2>
       <form>
@@ -13,10 +21,10 @@ export const RadioButtons = ({ updateFormData, value }) => {
             <input
               type="radio"
               value="hauntedHouse"
-              onChange={event => setLocation(event.target.value)}
+              onChange={handleLocationChange}
               checked={location === "hauntedHouse"}
             />
-            haunted house
+            Haunted House
           </label>
         </div>
         <div className="input-wrapper">
@@ -24,10 +32,10 @@ export const RadioButtons = ({ updateFormData, value }) => {
             <input
               type="radio"
               value="darkForest"
-              onChange={event => setLocation(event.target.value)}
+              onChange={handleLocationChange}
               checked={location === "darkForest"}
             />
-            dark forest
+            Dark Forest
           </label>
         </div>
         <div className="input-wrapper">
@@ -35,18 +43,19 @@ export const RadioButtons = ({ updateFormData, value }) => {
             <input
               type="radio"
               value="oldGraveyard"
-              onChange={event => setLocation(event.target.value)}
+              onChange={handleLocationChange}
               checked={location === "oldGraveyard"}
             />
-            old graveyard
+            Old Graveyard
           </label>
         </div>
       </form>
     </div>
-  )
-}
+    </React.Fragment>
+  );
+};
 
 RadioButtons.propTypes = {
-  updateFormData: PropTypes.func.isRequired, // Assuming it's required and a function
-  value: PropTypes.any, // Adjust the PropTypes type as needed for the 'value' prop
+  updateFormData: PropTypes.func.isRequired,
+  value: PropTypes.string, // Adjust the PropTypes type if needed
 };

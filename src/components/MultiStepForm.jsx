@@ -88,6 +88,8 @@ export const MultiStepForm = () => {
       {currentStep === 5 && (
         <Dropdown value={formData.Dropdown} updateFormData={updateFormData} />
       )}
+
+
       {/* Render the Artist component if on step 6 */}
       {currentStep === 6 && (
         <Sound
@@ -95,7 +97,7 @@ export const MultiStepForm = () => {
           updateFormData={updateFormData}
         />
       )}
-      <div class="buttons">
+      <div className="buttons">
         {/* Show the "Back" button if not on the first step */}
         {currentStep > 1 && <button onClick={prevStep}>Back</button>}
         {currentStep < 6 ? (

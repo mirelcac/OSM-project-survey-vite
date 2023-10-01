@@ -5,7 +5,7 @@ export const Name = ({ value, updateFormData }) => {
   return (
     <div className="form-container">
       <div className="input-wrapper">
-      <label><h2>What's your name?</h2></label>
+      <label><h2>What&rsquo;s your name?</h2></label>
       <input type="text" id="name-input" value={value} onChange={userName} />
       </div>
     </div>
