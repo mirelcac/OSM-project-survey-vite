@@ -4,7 +4,10 @@
 import PropTypes from 'prop-types'
 
 export const Setting = ({ updateFormData, value }) => {
-  const setLocation = (e) => updateFormData("setLocation", e.target.value)
+
+const setLocation = (e) => {
+    updateFormData("setLocation", e.target.value)
+  }
 
   return (
     <div className="form-container">

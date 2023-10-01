@@ -17,7 +17,7 @@ export const MultiStepForm = () => {
     chooseWeather: "",
     chooseAntagonist: "",
     chooseSound: "",
-    setting: "",
+    setLocation: "",
   })
 
   //FUNCTION TO UPDATE FORM DATA BASED ON FIELD AND VALUE//
