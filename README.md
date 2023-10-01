@@ -18,7 +18,7 @@ Codewise, the biggest challenge was displaying the story after the input forms.
 
 ### View it live
 
-
+https://app.netlify.com/sites/osm-inputsurvey-vite/configuration/general
 
 ## Instructions
 
