@@ -114,7 +114,115 @@
 
     
 
-// MultiStepForm.jsx
+// // MultiStepForm.jsx
+// import React, { useState } from "react";
+// import { Age } from "./Age";
+// import { Dropdown } from "./dropdown";
+// import { RadioButtons } from "./radioButtons";
+// import { Sound } from "./Sound";
+// import { Weather } from "./Weather";
+// import { Name } from "./Name";
+// import { Story } from "./Story"; // Import the Story component
+
+// export const MultiStepForm = () => {
+//   // State to store form data
+//   const [formData, setFormData] = useState({
+//     name: "",
+//     age: "",
+//     chooseWeather: "",
+//     Dropdown: "",
+//     chooseSound: "",
+//     radioButtons: "",
+//   });
+
+//   // Function to update form data based on field and value
+//   const updateFormData = (field, value) => {
+//     setFormData((previous) => ({ ...previous, [field]: value }));
+//   };
+
+//   // State to store the story
+//   const [story, setStory] = useState(""); // Initialize with an empty string
+
+//   // State to track the current step in the form
+//   const [currentStep, setCurrentStep] = useState(1);
+
+//   // Function to move to the next step in the form
+//   const nextStep = () => {
+//     if (currentStep < 6) setCurrentStep(currentStep + 1);
+//   };
+
+//   const prevStep = () => {
+//     if (currentStep > 1) setCurrentStep(currentStep - 1);
+//   };
+
+//   // Function to submit the form itself
+//   const submitForm = () => {
+//     console.log("Submit button clicked");
+//     // Create the story based on the form data
+//     const formattedData = `
+//     Name: ${formData.name}
+//     Age: ${formData.age}
+//     Weather: ${formData.chooseWeather}
+//     Dropdown: ${formData.Dropdown}
+//     Sound: ${formData.chooseSound}
+//     Location: ${formData.radioButtons}
+//   `;
+
+//     // Update the story with the form data
+//     setStory(formattedData);
+
+//     console.log('Story updated:', formattedData); // Add this line
+//   };
+
+//   return (
+//     <React.Fragment>
+//     <div>
+//       {currentStep === 1 && (
+//         <Name value={formData.name} updateFormData={updateFormData} />
+//       )}
+//       {currentStep === 2 && (
+//         <Age value={formData.age} updateFormData={updateFormData} />
+//       )}
+//       {currentStep === 3 && (
+//         <RadioButtons
+//           value={formData.radioButtons}
+//           updateFormData={updateFormData}
+//         />
+//       )}
+//       {currentStep === 4 && (
+//         <Weather
+//           value={formData.chooseWeather}
+//           updateFormData={updateFormData}
+//         />
+//       )}
+//       {currentStep === 5 && (
+//         <Dropdown
+//           value={formData.Dropdown}
+//           updateFormData={updateFormData}
+//         />
+//       )}
+//       {currentStep === 6 && (
+//         <Sound value={formData.chooseSound} updateFormData={updateFormData} />
+//       )}
+
+//       <div className="buttons">
+//         {currentStep > 1 && <button onClick={prevStep}>Back</button>}
+//         {currentStep < 6 ? (
+//           <button onClick={nextStep}>Next</button>
+//         ) : (
+//           <button onClick={submitForm}>Submit Form</button>
+//         )}
+//       </div>
+
+//       {/* Pass the story to the Story component */}
+//       {/* {story && <Story story={story} />} */}
+//     </div>
+//     {/* Display submit button click and story update messages */}
+//     {story && <Story story={story} />}
+//     </React.Fragment>
+//   );
+// };
+
 import React, { useState } from "react";
 import { Age } from "./Age";
 import { Dropdown } from "./dropdown";
@@ -122,10 +230,9 @@ import { RadioButtons } from "./radioButtons";
 import { Sound } from "./Sound";
 import { Weather } from "./Weather";
 import { Name } from "./Name";
-import { Story } from "./Story"; // Import the Story component
+import { Story } from "./Story";
 
 export const MultiStepForm = () => {
-  // State to store form data
   const [formData, setFormData] = useState({
     name: "",
     age: "",
@@ -135,18 +242,14 @@ export const MultiStepForm = () => {
     radioButtons: "",
   });
 
-  // Function to update form data based on field and value
   const updateFormData = (field, value) => {
     setFormData((previous) => ({ ...previous, [field]: value }));
   };
 
-  // State to store the story
-  const [story, setStory] = useState(""); // Initialize with an empty string
-
-  // State to track the current step in the form
+  const [story, setStory] = useState("");
   const [currentStep, setCurrentStep] = useState(1);
+  const [formSubmitted, setFormSubmitted] = useState(false); // Add formSubmitted state
 
-  // Function to move to the next step in the form
   const nextStep = () => {
     if (currentStep < 6) setCurrentStep(currentStep + 1);
   };
@@ -155,10 +258,8 @@ export const MultiStepForm = () => {
     if (currentStep > 1) setCurrentStep(currentStep - 1);
   };
 
-  // Function to submit the form itself
   const submitForm = () => {
     console.log("Submit button clicked");
-    // Create the story based on the form data
     const formattedData = `
     Name: ${formData.name}
     Age: ${formData.age}
@@ -168,59 +269,58 @@ export const MultiStepForm = () => {
     Location: ${formData.radioButtons}
   `;
 
-    // Update the story with the form data
     setStory(formattedData);
-
-    console.log('Story updated:', formattedData); // Add this line
+    setFormSubmitted(true); // Set formSubmitted to true when the form is submitted
   };
 
   return (
-    <React.Fragment>
     <div>
-      {currentStep === 1 && (
-        <Name value={formData.name} updateFormData={updateFormData} />
-      )}
-      {currentStep === 2 && (
-        <Age value={formData.age} updateFormData={updateFormData} />
-      )}
-      {currentStep === 3 && (
-        <RadioButtons
-          value={formData.radioButtons}
-          updateFormData={updateFormData}
-        />
-      )}
-      {currentStep === 4 && (
-        <Weather
-          value={formData.chooseWeather}
-          updateFormData={updateFormData}
-        />
-      )}
-      {currentStep === 5 && (
-        <Dropdown
-          value={formData.Dropdown}
-          updateFormData={updateFormData}
-        />
-      )}
-      {currentStep === 6 && (
-        <Sound value={formData.chooseSound} updateFormData={updateFormData} />
-      )}
+      {!formSubmitted ? ( // Conditionally render form if formSubmitted is false
+        <React.Fragment>
+          {currentStep === 1 && (
+            <Name value={formData.name} updateFormData={updateFormData} />
+          )}
+          {currentStep === 2 && (
+            <Age value={formData.age} updateFormData={updateFormData} />
+          )}
+          {currentStep === 3 && (
+            <RadioButtons
+              value={formData.radioButtons}
+              updateFormData={updateFormData}
+            />
+          )}
+          {currentStep === 4 && (
+            <Weather
+              value={formData.chooseWeather}
+              updateFormData={updateFormData}
+            />
+          )}
+          {currentStep === 5 && (
+            <Dropdown
+              value={formData.Dropdown}
+              updateFormData={updateFormData}
+            />
+          )}
+          {currentStep === 6 && (
+            <Sound value={formData.chooseSound} updateFormData={updateFormData} />
+          )}
 
-      <div className="buttons">
-        {currentStep > 1 && <button onClick={prevStep}>Back</button>}
-        {currentStep < 6 ? (
-          <button onClick={nextStep}>Next</button>
-        ) : (
-          <button onClick={submitForm}>Submit Form</button>
-        )}
-      </div>
-
-      {/* Pass the story to the Story component */}
-      {/* {story && <Story story={story} />} */}
+          <div className="buttons">
+            {currentStep > 1 && <button onClick={prevStep}>Back</button>}
+            {currentStep < 6 ? (
+              <button onClick={nextStep}>Next</button>
+            ) : (
+              <button onClick={submitForm}>Submit Form</button>
+            )}
+          </div>
+        </React.Fragment>
+      ) : (
+        // Conditionally render Story if formSubmitted is true
+        <Story story={story} />
+      )}
     </div>
-    {/* Display submit button click and story update messages */}
-    {story && <Story story={story} />}
-    </React.Fragment>
   );
 };
+
 
 
