@@ -1,7 +1,15 @@
-import Dropdown from "./components/dropdown.jsx"
 
-export const App = () => {
-  return <div>
-    <Dropdown value="" />
-  </div>;
-};
+import { MultiStepForm } from "./components/MultiStepForm";
+import "./App.css";
+import "./index.css"
+
+export default function App() {
+  return (
+    <>
+      {/* Multi Step Form */}
+      <MultiStepForm />
+    </>
+  )
+}
+
+
