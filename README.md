@@ -4,7 +4,7 @@
   </a>
 </h1>
 
-# Survey Project
+# Survey Project - Group Project
 
 In this project, we created different types of input forms, resulting In a story sing the input answers in the end. The theme was Halloween.
 

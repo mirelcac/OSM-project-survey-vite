@@ -4,7 +4,7 @@ export const Story = ({ formData }) => {
         <container>
             <div className="story-container">
                 <h1>{formData.name}´s Halloween Story!</h1>
-                <p>Once upon a chilling Halloween night, a brave soul named {formData.name} embarked on a spine-tingling adventure. With a lantern in hand and {formData.number} loyal companions by their side, they set out into the {formData.setting}, where the air was thick with anticipation.
+                <p>Once upon a chilling Halloween night, a brave soul named {formData.name} embarked on a spine-tingling adventure. With a lantern in hand and {formData.number} loyal companions by their side, they set out into the {formData.setLocation}, where the air was thick with anticipation.
 
                     The {formData.chooseWeather} sky above cast an eerie glow on the twisted trees of the dark forest. Shadows danced, and whispers of the {formData.chooseAntagonist} sent shivers down their spine. Armed with a trusty {formData.chooseSound}, they pressed on, their hearts pounding like a drumbeat in the night.
 

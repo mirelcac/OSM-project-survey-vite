@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types'
 
 export const Setting = ({ updateFormData, value }) => {
-   const selectedLocation = value || '';
+  const selectedLocation = value || '';
 
-const setLocation = (e) => {
+  const setLocation = (e) => {
     updateFormData("setLocation", e.target.value)
   }
 
@@ -50,6 +50,6 @@ const setLocation = (e) => {
 }
 
 Setting.propTypes = {
-  updateFormData: PropTypes.func.isRequired, 
+  updateFormData: PropTypes.func.isRequired,
   value: PropTypes.any,
 }
