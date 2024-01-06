@@ -55,7 +55,7 @@ export const MultiStepForm = () => {
   }
 
   return (
-    <div>
+    <div className="survey-wrapper">
       {/* Render the Name component if on step 1 */}
       {currentStep === 1 && (
         <Name value={formData.name} updateFormData={updateFormData} />

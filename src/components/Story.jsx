@@ -1,7 +1,7 @@
 
 export const Story = ({ formData }) => {
     return (
-        <container>
+        <div className="content-wrapper">
             <div className="story-container">
                 <h1>{formData.name}´s Halloween Story!</h1>
                 <p>Once upon a chilling Halloween night, a brave soul named {formData.name} embarked on a spine-tingling adventure. With a lantern in hand and {formData.number} loyal companions by their side, they set out into the {formData.setLocation}, where the air was thick with anticipation.
@@ -18,8 +18,7 @@ export const Story = ({ formData }) => {
 
                     As dawn broke and the party came to an end, they bid farewell to their newfound companions and made their way home, hearts aglow with the magic of Halloween. In the end, it was a night filled with both spooky thrills and heartwarming connections—a Halloween tale they would cherish forever.</p>
             </div>
-
-        </container >
+        </div>
     )
 }
 
