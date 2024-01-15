@@ -71,6 +71,7 @@ button {
 .story-container {
   font-family: 'Mooli';
   background-color: #242638;
+  text-align: center;
   border-radius: 10px;
   padding: 20px;
   color: rgb(221, 192, 117);
@@ -90,6 +91,7 @@ button {
   }
 
   .story-container {
+    text-align: center;
     width: 85%;
     font-size: 15px;
   }
